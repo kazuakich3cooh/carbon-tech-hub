@@ -1,51 +1,15 @@
 import Image from "next/image";
 
-const latestInsights = [
-  {
-    title: "EU Methane Regulation",
-    text: "Latest updates on methane reporting and compliance.",
-  },
-  {
-    title: "Carbon Capture",
-    text: "Emerging technologies and industrial case studies.",
-  },
-  {
-    title: "MRV Digitalization",
-    text: "AI, sensors and automated emissions monitoring.",
-  },
+const insights = [
+  ["EU Methane Regulation", "Latest updates on methane reporting and compliance.", "Regulation"],
+  ["Carbon Capture", "Emerging technologies and industrial case studies.", "CCUS"],
+  ["MRV Digitalization", "AI, sensors and automated emissions monitoring.", "Digital MRV"],
 ];
 
-const featuredSolutions = [
-  {
-    company: "SENSIA",
-    category: "Flare Monitoring",
-    description: "Flare combustion efficiency monitoring and optical gas imaging.",
-  },
-  {
-    company: "TAUROB",
-    category: "Robotics",
-    description: "Autonomous industrial inspection robots.",
-  },
-  {
-    company: "GHGSat",
-    category: "Satellite MRV",
-    description: "Satellite-based greenhouse gas emissions monitoring.",
-  },
-  {
-    company: "SeekOps",
-    category: "Drone MRV",
-    description: "Drone-based methane emissions quantification.",
-  },
-  {
-    company: "Kairos Aerospace",
-    category: "Methane Detection",
-    description: "Aerial methane detection and analytics.",
-  },
-  {
-    company: "Bridger Photonics",
-    category: "LiDAR",
-    description: "Airborne LiDAR methane detection technology.",
-  },
+const solutions = [
+  ["Flare Monitoring", "SENSIA", "Flare Monitoring Camera", "Combustion efficiency and flare performance monitoring."],
+  ["Robotics", "TAUROB", "Autonomous Inspection Robot", "Robotic inspection for fugitive emissions and industrial facilities."],
+  ["Post Carbon Capture", "KHI", "Carbon Capture Technology", "Post-combustion carbon capture for industrial decarbonization."],
 ];
 
 export default function Home() {
@@ -69,7 +33,7 @@ export default function Home() {
         <section className="relative mx-auto max-w-7xl px-6 py-28">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.4em] text-emerald-600">
-              CarbonTech Hub
+              CarbonTech Hub v0.3
             </p>
 
             <h1 className="mt-6 text-5xl font-black leading-tight tracking-tight text-slate-950 md:text-7xl">
@@ -85,72 +49,35 @@ export default function Home() {
       </section>
 
       <section id="insights" className="mx-auto max-w-7xl px-6 py-16">
-        <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-black">Latest Insights</h2>
-          <a
-            href="/insights"
-            className="font-semibold text-emerald-600 hover:text-emerald-700"
-          >
-            View all →
-          </a>
-        </div>
+        <h2 className="text-3xl font-black">Latest Insights</h2>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {latestInsights.map((insight) => (
-            <div
-              key={insight.title}
-              className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-50 text-2xl">
-                🌿
-              </div>
-
-              <h3 className="text-xl font-bold">{insight.title}</h3>
-
-              <p className="mt-3 leading-7 text-slate-600">
-                {insight.text}
+          {insights.map(([title, text, tag]) => (
+            <div key={title} className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+              <p className="mb-5 inline-block rounded-full bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700">
+                {tag}
               </p>
-
-              <p className="mt-6 font-semibold text-emerald-600">
-                Read more →
-              </p>
+              <h3 className="text-xl font-bold">{title}</h3>
+              <p className="mt-3 leading-7 text-slate-600">{text}</p>
+              <p className="mt-6 font-semibold text-emerald-600">Read more →</p>
             </div>
           ))}
         </div>
       </section>
 
       <section id="solutions" className="mx-auto max-w-7xl px-6 pb-16">
-        <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-black">Featured Solutions</h2>
-          <a
-            href="/solutions"
-            className="font-semibold text-emerald-600 hover:text-emerald-700"
-          >
-            View all →
-          </a>
-        </div>
+        <h2 className="text-3xl font-black">Featured Solutions</h2>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {featuredSolutions.map((solution) => (
-            <div
-              key={solution.company}
-              className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-lg"
-            >
+          {solutions.map(([category, name, product, description]) => (
+            <div key={name} className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
               <p className="text-sm font-bold uppercase tracking-[0.3em] text-emerald-600">
-                {solution.category}
+                {category}
               </p>
-
-              <h3 className="mt-4 text-2xl font-black">
-                {solution.company}
-              </h3>
-
-              <p className="mt-4 leading-7 text-slate-600">
-                {solution.description}
-              </p>
-
-              <p className="mt-6 font-semibold text-emerald-600">
-                View details →
-              </p>
+              <h3 className="mt-4 text-3xl font-black text-emerald-600">{name}</h3>
+              <p className="mt-3 text-lg font-semibold text-slate-700">{product}</p>
+              <p className="mt-4 leading-7 text-slate-600">{description}</p>
+              <p className="mt-6 font-semibold text-emerald-600">View details →</p>
             </div>
           ))}
         </div>
@@ -161,19 +88,19 @@ export default function Home() {
           <div>
             <h2 className="text-3xl font-black">Join CarbonTech Hub</h2>
             <p className="mt-3 max-w-2xl text-slate-600">
-              List your technology and reach a global audience focused on
-              industrial decarbonization.
+              List your technology and reach a global audience focused on industrial decarbonization.
             </p>
           </div>
 
-          <a
-            className="rounded-xl bg-emerald-600 px-8 py-4 text-center font-bold text-white hover:bg-emerald-700"
-            href="/submit"
-          >
+          <a className="rounded-xl bg-emerald-600 px-8 py-4 text-center font-bold text-white hover:bg-emerald-700" href="/submit">
             List Your Technology →
           </a>
         </div>
       </section>
+
+      <footer className="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500">
+        CarbonTech Hub v0.3
+      </footer>
     </main>
   );
 }
