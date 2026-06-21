@@ -1,106 +1,233 @@
-import Image from "next/image";
+export default function HomePage() {
+  const insights = [
+    {
+      category: "Regulation",
+      title: "EU Methane Regulation: What Companies Need to Know",
+      text: "An overview of methane rules and what they mean for industrial operators.",
+    },
+    {
+      category: "Technology",
+      title: "Advances in Methane Detection Technologies",
+      text: "How monitoring technologies are improving emissions visibility.",
+    },
+    {
+      category: "MRV",
+      title: "Building an Effective MRV Strategy",
+      text: "Key components for measurement, reporting, and verification.",
+    },
+  ];
 
-const insights = [
-  ["EU Methane Regulation", "Latest updates on methane reporting and compliance.", "Regulation"],
-  ["Carbon Capture", "Emerging technologies and industrial case studies.", "CCUS"],
-  ["MRV Digitalization", "AI, sensors and automated emissions monitoring.", "Digital MRV"],
-];
-
-const solutions = [
-  ["Flare Monitoring", "SENSIA", "Flare Monitoring Camera", "Combustion efficiency and flare performance monitoring."],
-  ["Robotics", "TAUROB", "Autonomous Inspection Robot", "Robotic inspection for fugitive emissions and industrial facilities."],
-  ["Post Carbon Capture", "KHI", "Carbon Capture Technology", "Post-combustion carbon capture for industrial decarbonization."],
-];
-
-export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
-      <section className="relative min-h-[620px] overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/hero.png"
-            alt="Clean industry and nature landscape"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
+      <section className="relative overflow-hidden bg-slate-950 px-6 py-28 text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(16,185,129,0.25),transparent_30%),linear-gradient(to_bottom,rgba(2,6,23,0.2),rgba(2,6,23,1))]" />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-50" />
-        <div className="absolute inset-0 bg-emerald-950/5" />
-
-        <section className="relative mx-auto max-w-7xl px-6 py-28">
+        <div className="relative mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase tracking-[0.4em] text-emerald-600">
-              CarbonTech Hub v0.3
+            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
+              CarbonTech Hub
             </p>
 
-            <h1 className="mt-6 text-5xl font-black leading-tight tracking-tight text-slate-950 md:text-7xl">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
               Connecting Carbon Technologies & MRV Solutions
             </h1>
 
-            <p className="mt-7 max-w-2xl text-xl leading-9 text-slate-700">
-              Discover technologies accelerating methane management, carbon capture,
-              flare monitoring, and industrial decarbonization.
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+              A platform for carbon technologies, MRV solutions, emissions
+              monitoring, and industrial decarbonization.
             </p>
+
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="/submit"
+                className="rounded-full bg-emerald-500 px-8 py-4 text-center text-sm font-semibold text-white shadow-lg shadow-emerald-500/30 transition hover:bg-emerald-400"
+              >
+                Apply for Listing
+              </a>
+
+              <a
+                href="/solutions"
+                className="rounded-full border border-white/20 px-8 py-4 text-center text-sm font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300"
+              >
+                Request Consulting Support
+              </a>
+            </div>
           </div>
-        </section>
-      </section>
-
-      <section id="insights" className="mx-auto max-w-7xl px-6 py-16">
-        <h2 className="text-3xl font-black">Latest Insights</h2>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {insights.map(([title, text, tag]) => (
-            <div key={title} className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <p className="mb-5 inline-block rounded-full bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-700">
-                {tag}
-              </p>
-              <h3 className="text-xl font-bold">{title}</h3>
-              <p className="mt-3 leading-7 text-slate-600">{text}</p>
-              <p className="mt-6 font-semibold text-emerald-600">Read more →</p>
-            </div>
-          ))}
         </div>
       </section>
 
-      <section id="solutions" className="mx-auto max-w-7xl px-6 pb-16">
-        <h2 className="text-3xl font-black">Featured Solutions</h2>
-
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {solutions.map(([category, name, product, description]) => (
-            <div key={name} className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <p className="text-sm font-bold uppercase tracking-[0.3em] text-emerald-600">
-                {category}
+      <section className="bg-slate-950 px-6 pb-24 text-white">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-emerald-400/20 bg-slate-900/80 p-8 shadow-2xl shadow-emerald-950/40">
+          <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">
+                Global Network
               </p>
-              <h3 className="mt-4 text-3xl font-black text-emerald-600">{name}</h3>
-              <p className="mt-3 text-lg font-semibold text-slate-700">{product}</p>
-              <p className="mt-4 leading-7 text-slate-600">{description}</p>
-              <p className="mt-6 font-semibold text-emerald-600">View details →</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Linking solution providers and industrial operators worldwide.
+              </h2>
             </div>
-          ))}
-        </div>
-      </section>
 
-      <section id="submit" className="mx-auto max-w-7xl px-6 pb-20">
-        <div className="flex flex-col gap-6 rounded-3xl border border-emerald-200 bg-emerald-50 p-10 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h2 className="text-3xl font-black">Join CarbonTech Hub</h2>
-            <p className="mt-3 max-w-2xl text-slate-600">
-              List your technology and reach a global audience focused on industrial decarbonization.
+            <p className="max-w-md text-sm leading-6 text-slate-400">
+              Europe, North America, Tokyo, and Singapore are emerging as key
+              hubs for regulation, innovation, and industrial decarbonization.
             </p>
           </div>
 
-          <a className="rounded-xl bg-emerald-600 px-8 py-4 text-center font-bold text-white hover:bg-emerald-700" href="/submit">
-            List Your Technology →
-          </a>
+          <div className="relative h-[520px] overflow-hidden rounded-[1.5rem] bg-slate-950">
+            <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle,rgba(16,185,129,0.35)_1px,transparent_1px)] [background-size:22px_22px]" />
+
+            <svg
+              className="absolute inset-0 h-full w-full"
+              viewBox="0 0 1000 520"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M150 260 C350 120, 460 210, 520 220"
+                stroke="rgba(52,211,153,0.85)"
+                strokeWidth="2"
+              />
+              <path
+                d="M520 220 C650 130, 800 160, 870 250"
+                stroke="rgba(52,211,153,0.85)"
+                strokeWidth="2"
+              />
+              <path
+                d="M520 220 C700 300, 760 360, 790 405"
+                stroke="rgba(52,211,153,0.75)"
+                strokeWidth="2"
+              />
+              <path
+                d="M150 260 C350 390, 590 410, 790 405"
+                stroke="rgba(52,211,153,0.45)"
+                strokeWidth="1.5"
+              />
+            </svg>
+
+            {[
+              {
+                name: "North America",
+                x: "14%",
+                y: "50%",
+                text: "Innovation and technology providers",
+              },
+              {
+                name: "Europe",
+                x: "50%",
+                y: "42%",
+                text: "Regulation, MRV, and compliance",
+              },
+              {
+                name: "Tokyo",
+                x: "84%",
+                y: "48%",
+                text: "Industrial operators and engineering",
+              },
+              {
+                name: "Singapore",
+                x: "76%",
+                y: "78%",
+                text: "Regional energy and decarbonization hub",
+              },
+            ].map((point) => (
+              <div
+                key={point.name}
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={{ left: point.x, top: point.y }}
+              >
+                <div className="relative">
+                  <div className="absolute -inset-4 rounded-full bg-emerald-400/20 blur-xl" />
+                  <div className="relative h-5 w-5 rounded-full border border-emerald-200 bg-emerald-400 shadow-lg shadow-emerald-400/60" />
+                </div>
+
+                <div className="mt-4 w-48">
+                  <p className="text-sm font-bold uppercase tracking-wider text-emerald-300">
+                    {point.name}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-slate-300">
+                    {point.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 px-6 py-8 text-center text-sm text-slate-500">
-        CarbonTech Hub v0.3
-      </footer>
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex items-end justify-between gap-6">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-600">
+                Latest Insights
+              </p>
+              <h2 className="mt-3 text-4xl font-bold tracking-tight">
+                Explore carbon technology trends.
+              </h2>
+            </div>
+
+            <a
+              href="/insights"
+              className="hidden text-sm font-semibold text-emerald-700 hover:text-emerald-900 sm:block"
+            >
+              View all insights →
+            </a>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {insights.map((item) => (
+              <article
+                key={item.title}
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="h-44 bg-gradient-to-br from-emerald-100 via-slate-100 to-slate-300" />
+
+                <div className="p-7">
+                  <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase text-emerald-700">
+                    {item.category}
+                  </span>
+
+                  <h3 className="mt-5 text-xl font-bold leading-7">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-slate-600">{item.text}</p>
+
+                  <a
+                    href="/insights"
+                    className="mt-6 inline-block text-sm font-semibold text-emerald-700 hover:text-emerald-900"
+                  >
+                    Read more →
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <section className="mt-20 rounded-[2rem] border border-emerald-100 bg-white p-10 shadow-xl shadow-slate-200/70">
+            <div className="grid gap-8 lg:grid-cols-[1.4fr_0.6fr] lg:items-center">
+              <div>
+                <h2 className="text-3xl font-bold tracking-tight">
+                  Looking for support with emissions, MRV, or environmental
+                  regulations?
+                </h2>
+                <p className="mt-4 text-slate-600">
+                  CarbonTech Hub can help clarify requirements and identify
+                  practical technology options.
+                </p>
+              </div>
+
+              <a
+                href="/solutions"
+                className="rounded-full bg-emerald-600 px-8 py-4 text-center text-sm font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:bg-emerald-700"
+              >
+                Request Consulting Support
+              </a>
+            </div>
+          </section>
+        </div>
+      </section>
     </main>
   );
 }
