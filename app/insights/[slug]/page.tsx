@@ -1,4 +1,5 @@
-import { getPostBySlug } from "@/lib/posts";
+import type { Metadata } from "next";
+import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
@@ -8,6 +9,60 @@ type PageProps = {
     slug: string;
   }>;
 };
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: "Article not found | CarbonTech Hub",
+    };
+  }
+
+ return {
+  title: `${post.title} | CarbonTech Hub`,
+  description: post.description,
+
+  openGraph: {
+    title: post.title,
+    description: post.description,
+    url: `https://carbon-tech-hub.com/insights/${post.slug}`,
+    siteName: "CarbonTech Hub",
+    images: [
+      {
+        url: `https://carbon-tech-hub.com${post.coverImage}`,
+        width: 1200,
+        height: 630,
+        alt: post.title,
+      },
+    ],
+    locale: "en_US",
+    type: "article",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: post.title,
+    description: post.description,
+    images: [`https://carbon-tech-hub.com${post.coverImage}`],
+  },
+
+  alternates: {
+  canonical: `https://carbon-tech-hub.com/insights/${post.slug}`,
+  }, 
+};
+}
+
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
@@ -55,6 +110,23 @@ export default async function ArticlePage({ params }: PageProps) {
           <ReactMarkdown>
             {post.content}
           </ReactMarkdown>
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+            Tags
+          </h3>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
       </article>
     </main>

@@ -4,8 +4,67 @@ import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "CarbonTech Hub",
-  description: "Carbon technologies and MRV solutions platform",
+  metadataBase: new URL("https://carbon-tech-hub.com"),
+
+  title: {
+    default: "CarbonTech Hub",
+    template: "%s | CarbonTech Hub",
+  },
+
+  description:
+    "CarbonTech Hub is a professional platform covering carbon technologies, methane management, MRV, carbon capture, industrial decarbonization, and environmental regulations.",
+
+  keywords: [
+    "Carbon Technology",
+    "MRV",
+    "Methane",
+    "EU Methane Regulation",
+    "Carbon Capture",
+    "CCUS",
+    "Industrial Decarbonization",
+    "Emissions Monitoring",
+    "OGMP",
+    "Satellite Methane",
+  ],
+
+  authors: [
+    {
+      name: "CarbonTech Hub",
+    },
+  ],
+
+  creator: "CarbonTech Hub",
+
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://carbon-tech-hub.com",
+    siteName: "CarbonTech Hub",
+    title: "CarbonTech Hub",
+    description:
+      "Connecting Carbon Technologies, MRV Solutions, and Industrial Decarbonization.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "CarbonTech Hub",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "CarbonTech Hub",
+    description:
+      "Connecting Carbon Technologies, MRV Solutions, and Industrial Decarbonization.",
+    images: ["/logo.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
