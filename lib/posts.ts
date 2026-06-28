@@ -36,3 +36,9 @@ export function getAllPosts(): Post[] {
 
   return posts.sort((a, b) => b.date.localeCompare(a.date));
 }
+
+export function getPostBySlug(slug: string): Post | null {
+  const posts = getAllPosts();
+
+  return posts.find((post) => post.slug === slug) ?? null;
+}
