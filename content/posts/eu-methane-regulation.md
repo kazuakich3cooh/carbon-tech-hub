@@ -1,0 +1,35 @@
+---
+id: "20260628-eumr"
+title: "EU Methane Regulation"
+slug: "eu-methane-regulation"
+date: "2026-06-28"
+author: "CarbonTech Hub"
+
+category: "Regulation"
+
+tags:
+  - MRV
+  - Methane
+
+readingTime: 5
+featured: true
+
+excerpt: "Overview of the EU Methane Regulation and its impact on global energy companies."
+
+coverImage: "/images/eumr.jpg"
+---
+
+# EU Methane Regulation
+
+The European Union Methane Regulation (EUMR) is one of the most significant policy developments for the global energy industry. It introduces new monitoring, reporting and verification (MRV) requirements for methane emissions across the energy value chain.
+
+## Why it matters
+
+The regulation will affect operators, equipment suppliers, and technology providers worldwide.
+
+## Key points
+
+- Mandatory methane monitoring
+- Leak detection and repair (LDAR)
+- Reporting requirements
+- Third-party verification
