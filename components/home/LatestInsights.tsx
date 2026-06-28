@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import Image from "next/image";
 
 export default function LatestInsights() {
   const posts = getAllPosts().slice(0, 3);
@@ -32,7 +33,14 @@ export default function LatestInsights() {
               key={post.id}
               className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="h-44 bg-gradient-to-br from-emerald-100 via-slate-100 to-slate-300" />
+              <div className="relative h-44">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
               <div className="p-7">
                 <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase text-emerald-700">

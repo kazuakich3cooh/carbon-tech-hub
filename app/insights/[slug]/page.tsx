@@ -1,6 +1,7 @@
 import { getPostBySlug } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
 type PageProps = {
   params: Promise<{
@@ -37,6 +38,16 @@ export default async function ArticlePage({ params }: PageProps) {
         <p className="mt-8 text-xl text-slate-600">
           {post.excerpt}
         </p>
+
+        <div className="relative mt-10 h-[420px] overflow-hidden rounded-3xl">
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
 
         <hr className="my-10" />
 
