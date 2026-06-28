@@ -1,5 +1,6 @@
 import { getPostBySlug } from "@/lib/posts";
 import { notFound } from "next/navigation";
+import ReactMarkdown from "react-markdown";
 
 type PageProps = {
   params: Promise<{
@@ -40,9 +41,9 @@ export default async function ArticlePage({ params }: PageProps) {
         <hr className="my-10" />
 
         <div className="prose prose-slate max-w-none">
-          <pre className="whitespace-pre-wrap font-sans">
+          <ReactMarkdown>
             {post.content}
-          </pre>
+          </ReactMarkdown>
         </div>
       </article>
     </main>

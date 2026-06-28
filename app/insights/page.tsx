@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
 
 export default function InsightsPage() {
@@ -54,9 +55,12 @@ export default function InsightsPage() {
                 ))}
               </div>
 
-              <p className="mt-8 font-semibold text-emerald-600">
+              <Link
+                href={`/insights/${post.slug}`}
+                className="mt-8 inline-block font-semibold text-emerald-600 hover:text-emerald-700"
+              >
                 Read more →
-              </p>
+              </Link>
             </article>
           ))}
         </div>
